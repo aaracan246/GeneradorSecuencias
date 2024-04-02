@@ -1,7 +1,28 @@
 package org.example
 
-class ConsoleSystem {
-    fun leerNum(msg: String): Int { }
+open class ConsoleSystem: Consola {
+    override fun leerNum(msg: String): Int {
+        println(msg)
 
-    fun mostrar(msg: String, salto: Boolean = false){}
+        val numero = readln()
+
+        try {
+            if (numero.isEmpty()){
+                return numero.toInt()
+            }
+        }
+        catch (e: NumberFormatException){
+            println("Ese número no es válido.")
+        }
+        return 0
+    }
+
+    override fun mostrar(msg: String, salto: Boolean){
+        if (salto){
+            println(msg)
+        }
+        else{
+            print(msg)
+        }
+    }
 }
