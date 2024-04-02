@@ -7,7 +7,7 @@ open class ConsoleSystem: Consola {
         val numero = readln()
 
         try {
-            if (numero.isEmpty()){
+            if (numero.isNotEmpty()){
                 return numero.toInt()
             }
         }

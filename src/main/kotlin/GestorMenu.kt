@@ -1,17 +1,23 @@
 package org.example
 
 class GestorMenu: ConsoleSystem() {
-    fun menuUsuario(){
-        printMenu()
-        val opcion = leerNum("Por favor, seleccione una opción: ")
+    fun menuUsuario(generadorSecuencias: GeneradorSecuencias){
 
-        when(opcion != 3){
-            1 ->
+        var opcion: Int
 
-            2 -> ""
+        do{
+            printMenu()
+            opcion = leerNum("Por favor, introduzca un número: ")
+            when(opcion){
+                1 -> {val numerito = leerNum("Por favor, introduzca un número: ")
+                    generadorSecuencias.fraseIncremental(numerito)}
 
-            else -> mostrar("Ese input no es válido.")
+                2 -> {val numerito = leerNum("Por favor, introduzca un número: ")
+                    generadorSecuencias.fraseFinal(numerito)}
 
-        }
+                else -> mostrar("Ese input no es válido.")
+            }
+
+        }while (opcion != 3)
     }
 }
