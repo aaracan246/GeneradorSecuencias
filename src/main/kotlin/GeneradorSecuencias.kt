@@ -1,6 +1,6 @@
 package org.example
 
-
+/*Merge done*/
 
 class GeneradorSecuencias(): ConsoleSystem() {
 
