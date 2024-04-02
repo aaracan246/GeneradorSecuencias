@@ -25,4 +25,12 @@ open class ConsoleSystem: Consola {
             print(msg)
         }
     }
+
+    fun printMenu(){
+        println("Menú: ")
+        println("1. Frase incremental")
+        println("2. Frase completa")
+        println("3. Salir")
+        println("Por favor, seleccione una opción: ")
+    }
 }

@@ -4,21 +4,31 @@ package org.example
 
 class GeneradorSecuencias(): ConsoleSystem() {
 
-    lateinit var sec: Sequence<String>
+    private lateinit var sec: Sequence<String>
 
+    private fun lineSequence(limit: Int = Int.MAX_VALUE) = generateSequence { readln() }.constrainOnce().take(limit)
 
+    fun fraseIncremental(numPalabras: Int){
+        sec = lineSequence(numPalabras)
 
-    fun lineSequence(limit: Int = Int.MAX_VALUE) = generateSequence { readln() }.constrainOnce().take(limit)
+        var frase = ""
 
-    fun fraseIncremental(){
-
+        for (palabra in sec){
+            frase += ( if (frase.isEmpty()) palabra else " $palabra")
+            mostrar(frase)
+        }
     }
 
-    fun fraseFinal(){}
+    fun fraseFinal(numPalabras: Int){
+        sec = lineSequence(numPalabras)
+        mostrarSec()
+    }
 
-    fun getSec(){}
+    private fun mostrarSec(){
+        mostrar(sec.toString())
+    }
 
-    fun mostrarSec(){}
+    fun getSec() = sec.toList().joinToString(" ")
 }
 
 
